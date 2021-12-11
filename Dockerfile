@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.2
-FROM alpine:latest
+FROM --platform=$BUILDPLATFORM alpine:latest
 WORKDIR /app
 ARG BUILDARCH
 RUN --mount=type=cache,target=/var/cache/apk \
