@@ -12,12 +12,13 @@ curl \
 bash \
 ansible \
 kubectl \
-terraform \
 python3 \
 py3-pip \
 aws-cli \
 docker-cli \
 openssl \
+&& curl -s https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_${TARGETARCH}.zip | unzip -d/usr/local/bin - \
+&& chmod +x /usr/local/bin/terraform \
 && curl --silent -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/${BUILDARCH}/aws-iam-authenticator \
 && chmod +x /usr/local/bin/aws-iam-authenticator \
 && curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash \
