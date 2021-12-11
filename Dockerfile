@@ -20,10 +20,10 @@ openssl \
 bash-completion \
 && curl -s https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_${TARGETARCH}.zip | unzip -d/usr/local/bin - \
 && chmod +x /usr/local/bin/terraform \
-&& curl --silent -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/${BUILDARCH}/aws-iam-authenticator \
+&& curl -s -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/${TARGETARCH}/aws-iam-authenticator \
 && chmod +x /usr/local/bin/aws-iam-authenticator \
 && curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash \
-&& curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_${TARGETARCH}.tar.gz" | tar xz -C /tmp \
+&& curl -s -L "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_linux_${TARGETARCH}.tar.gz" | tar xz -C /tmp \
 && echo "source /etc/profile" >> /root/.bashrc \
 && echo "source <(kubectl completion bash)" >> /root/.bashrc \
 && echo "source <(eksctl completion bash)" >> /root/.bashrc \
