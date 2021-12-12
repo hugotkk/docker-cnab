@@ -14,6 +14,7 @@ Bundle common tools in work...
 * git
 * curl
 * bash
+* ssh
 
 # Known issue
 
@@ -43,6 +44,7 @@ BUILDKIT=1 docker buildx build --platform=linux/amd64,linux/arm64 . -t hugotse/c
 ```
 docker run -it \
 -v ~/workplace:/app \
+-v ~/.ssh:/root/.ssh \
 -v ~/.aws:/root/.aws \
 -v ~/.kube:/root/.kube \
 hugotse/cnab bash
@@ -52,7 +54,9 @@ hugotse/cnab bash
 
 ```
 docker run -d \
+-v ~/workplace:/app \
 -v ~/.aws:/root/.aws \
+-v ~/.ssh:/root/.ssh \
 -v ~/.kube:/root/.kube \
 hugotse/cnab
 ```
