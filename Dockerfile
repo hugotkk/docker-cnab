@@ -30,4 +30,4 @@ bash-completion \
 && echo "complete -C '/usr/bin/aws_completer' aws" >> /root/.bashrc \
 && mv /tmp/eksctl /usr/local/bin
 
-ENTRYPOINT ["/bin/bash"]
+CMD ["/bin/bash", "-c", "while true; do sleep 1d; done;"]
