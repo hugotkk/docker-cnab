@@ -38,19 +38,33 @@ BUILDKIT=1 docker buildx build --platform=linux/amd64,linux/arm64 . -t hugotse/c
 
 # Use cases
 
-## mount with workplace then run ansible script, manage k8s cluster, terraform apply etc...
+## one time container
 
 ```
 docker run -it \
 -v ~/workplace:/app \
+-v ~/.aws:/root/.aws \
+-v ~/.kube:/root/.kube \
+hugotse/cnab bash
+```
+
+## long running daemon
+
+```
+docker run -d \
+-v ~/.aws:/root/.aws \
+-v ~/.kube:/root/.kube \
 hugotse/cnab
 ```
 
-## mount with .aws to use aws cli
+```
+docker exec -it <container_id> bash
+```
+
+## exec inline commands
 
 ```
 docker run -it \
 -v ~/.aws:/root/.aws \
--v ~/.kube:/root/.kube \
-hugotse/cnab
+hugotse/cnab aws
 ```
