@@ -16,6 +16,7 @@ python3 \
 py3-pip \
 aws-cli \
 docker-cli \
+openssh \
 openssl \
 bash-completion \
 && curl -s https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_${TARGETARCH}.zip | unzip -d/usr/local/bin - \
